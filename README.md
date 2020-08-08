@@ -1,0 +1,1 @@
+This is a drowsiness alert system in Python3 using OpenCV and Dlib libraries that plays an alarm when the user becomes drowsy. The system is implemented using the Flask microframework.
