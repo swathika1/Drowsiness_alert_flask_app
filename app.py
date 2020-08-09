@@ -1,5 +1,6 @@
 from flask import Flask, render_template, Response
 from camera import VideoCamera
+import cv2
 
 app = Flask(__name__)
 
@@ -26,9 +27,17 @@ def video_feed():
 # flask uses a generator function to implement streaming
 def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
     while True:
-        jpeg_byte_array = vid_camera.get_frame()
+        frame = vid_camera.get_frame()
+        if frame is None:
+            continue
+
+        success, jpeg = cv2.imencode(".jpg", frame)
+
+        if not success:
+            continue
+
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + jpeg_byte_array + b'\r\n\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpeg) + b'\r\n\r\n')
 
 
 if __name__ == '__main__':
