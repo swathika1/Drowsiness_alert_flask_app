@@ -1,8 +1,40 @@
 <!DOCTYPE html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    Welcome to the Driver Drowsiness Detector Home Page!
-    <a href = "{{ url_for('alert_system') }}">Click here to go to drowsiness alert system</a>
-</body>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Drowsiness Detection System</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+  </head>
+
+  <body>
+      <div class="header">
+        <div class="header-logo">Drowsiness Detection System</div>
+        <div class="header-list">
+          <ul>
+            <li>Home</li>
+            <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li> <!-- lick here to go to drowsiness alert system -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="copy-container">
+          <h1>Ready to drive?</h1>
+          <h2>Don't forget to wear your seatbelts!</h2>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-logo">Drowsiness Detection System</div>
+        <div class="footer-list">
+          <ul>
+            <li>Home</li>
+            <li>Alert System </li>
+          </ul>
+        </div>
+      </div>
+  </body>
+</html>
+
+
+

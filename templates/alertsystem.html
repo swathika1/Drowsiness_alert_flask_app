@@ -1,8 +1,39 @@
 <!DOCTYPE html>
-<head>
-    <title>Drowsiness Alert System</title>
-</head>
-<body>
-    <img src="{{ url_for('video_feed') }}" alt="Please wait till the camera loads"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
-    This is the the Drowsiness Alert System!
-</body>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Drowsiness Detection System</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+  </head>
+
+  <body>
+      <div class="header">
+        <div class="header-logo">Drowsiness Detection System</div>
+        <div class="header-list">
+          <ul>
+            <li><a href = "{{ url_for('home') }}">Home</a></li>
+            <li>Alert System</li> 
+          </ul>
+        </div>
+      </div>
+
+      <div class="main">
+        <h2>This is the the Drowsiness Alert System!</h2>
+        <h3>Please wait till the camera loads</h3>
+        <img src="{{ url_for('video_feed') }}" alt="Please wait till the camera loads"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
+      </div>
+
+      <div class="footer">
+        <div class="footer-logo">Drowsiness Detection System</div>
+        <div class="footer-list">
+          <ul>
+            <li>Home</li>
+            <li>Alert System </li>
+          </ul>
+        </div>
+      </div>
+  </body>
+</html>
+
+
+
