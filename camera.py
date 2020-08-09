@@ -1,5 +1,5 @@
 import cv2
-from frame_processing_tools import process_frame, encode_to_jpeg
+from frame_processing_tools import process_frame
 
 
 class VideoCamera:
@@ -13,4 +13,4 @@ class VideoCamera:
         success, frame = self.vid.read()
         frame = process_frame(frame)
 
-        return encode_to_jpeg(frame)
+        return frame
