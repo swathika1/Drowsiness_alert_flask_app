@@ -1,8 +1,12 @@
 from flask import Flask, render_template, Response
 from camera import VideoCamera
 import cv2
+from sound_tools import play_alarm_sound
 
 app = Flask(__name__)
+
+EAR_THRESHOLD = 0.3
+CONSECUTIVE_FRAMES_THRESHOLD = 5  # temporarily 5, wil be changed to 30
 
 
 @app.route('/')
@@ -26,8 +30,11 @@ def video_feed():
 
 # flask uses a generator function to implement streaming
 def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
+    # counting number of frames to play alert sound
+    frame_count = 0
+
     while True:
-        frame = vid_camera.get_frame()
+        frame, ear = vid_camera.get_frame()
         if frame is None:
             continue
 
@@ -38,6 +45,17 @@ def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
 
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpeg) + b'\r\n\r\n')
+
+        if ear < 0:
+            continue
+
+        if ear <= EAR_THRESHOLD:
+            frame_count += 1
+            if frame_count >= CONSECUTIVE_FRAMES_THRESHOLD:
+                play_alarm_sound()
+                frame_count = 0
+        else:
+            frame_count = 0
 
 
 if __name__ == '__main__':
