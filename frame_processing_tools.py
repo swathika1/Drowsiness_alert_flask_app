@@ -3,9 +3,10 @@ import dlib
 import imutils
 from imutils import face_utils
 import numpy as np
-
+from scipy.spatial import distance as dist
 
 FRAMEWIDTH = 400
+
 FACIAL_SHAPE_PREDICTOR = "shape_predictor_68_face_landmarks.dat"
 
 
@@ -18,16 +19,23 @@ def process_frame(frame):
 
     face_rectangles = face_detector(gray_frame)  # it is easier to get face rectangle from greyscale image
 
+    ear = -1.0
+
     for rect in face_rectangles:
         face_shape = facial_landmarks_predictor(image=gray_frame, box=rect)
         left_eye, right_eye = eye_predictor(face_shape)
+        draw_eyes(frame, left_eye, right_eye)
+        ear = (eye_aspect_ratio(left_eye) + eye_aspect_ratio(right_eye)) / 2.0
+        break  # assuming only one face needs detection as only one driver
 
-        lefteye_hull = cv2.convexHull(left_eye)
-        righteye_hull = cv2.convexHull(right_eye)
-        cv2.drawContours(frame, [lefteye_hull], -1, (0, 255, 0), 1)
-        cv2.drawContours(frame, [righteye_hull], -1, (0, 255, 0), 1)
+    return frame, ear
 
-    return frame
+
+def draw_eyes(frame, left_eye, right_eye):
+    lefteye_hull = cv2.convexHull(left_eye)
+    righteye_hull = cv2.convexHull(right_eye)
+    cv2.drawContours(frame, [lefteye_hull], -1, (0, 255, 0), 1)
+    cv2.drawContours(frame, [righteye_hull], -1, (0, 255, 0), 1)
 
 
 def eye_predictor(face_shape):
@@ -53,3 +61,16 @@ def eye_predictor(face_shape):
 def get_point_numbers_of_feature(feature: str) -> [int]:  # returns point numbers corresponding to a feature
     l, h = face_utils.FACIAL_LANDMARKS_IDXS[feature]
     return range(l, h)
+
+
+def eye_aspect_ratio(eye):
+    # vertical and horzontal distance within the eye
+
+    vertical1 = dist.euclidean(eye[1], eye[5])
+    vertical2 = dist.euclidean(eye[2], eye[4])
+
+    horizontal = dist.euclidean(eye[0], eye[3])
+
+    ear_value = (vertical1 + vertical2) / (2.0 * horizontal)
+
+    return ear_value
