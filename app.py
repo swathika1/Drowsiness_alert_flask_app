@@ -6,7 +6,7 @@ from sound_tools import play_alarm_sound
 app = Flask(__name__)
 
 EAR_THRESHOLD = 0.3
-CONSECUTIVE_FRAMES_THRESHOLD = 5  # temporarily 5, wil be changed to 30
+CONSECUTIVE_FRAMES_THRESHOLD = 20  # temporarily 5, wil be changed to 30
 
 
 @app.route('/')
@@ -44,7 +44,7 @@ def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
             continue
 
         yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + bytearray(jpeg) + b'\r\n\r\n')
+               b'Content-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n\r\n')
 
         if ear < 0:
             continue
