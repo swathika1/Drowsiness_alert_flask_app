@@ -1,6 +1,22 @@
+<!DOCTYPE html>
 <html>
+  <head>
+      <meta charset="utf-8">
+      <title>Drowsiness Alert System</title>
+      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+  </head>
 
-</head>
+  <body>
+      <div class="header">
+        <div class="header-logo">Drowsiness Alert System</div>
+        <div class="header-list">
+          <ul>
+            <li><a href = "{{ url_for('home') }}">Home</a></li>
+            <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li> <!-- lick here to go to drowsiness alert system -->
+            <li>Driving Tips</li>
+          </ul>
+        </div>
+      </div>
 
 <body>
 
