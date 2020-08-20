@@ -3,40 +3,157 @@
   <head>
       <meta charset="utf-8">
       <title>Drowsiness Alert System</title>
-      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/homestyle.css') }}">
   </head>
 
   <body>
-      <div class="header">
-        <div class="header-logo">Drowsiness Alert System</div>
-        <div class="header-list">
-          <ul>
-            <li>Home</li>
-            <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li> <!-- lick here to go to drowsiness alert system -->
-            <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
-          </ul>
-        </div>
-      </div>
 
-      <div class="main" style="background-image: url('static/img/carfront.png'); background-size: cover">
+      <div class="container">
+        <!-- Navigation bar -->
+        <header id="topnav">
+          <div class="inner">
+            <div class="logo">Drowsiness Alert System</div>
+            <nav role='navigation'>
+              <ul>
+                <li><a href = "{{ url_for('home') }}">Home</a></li>
+                <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
+                <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
+              </ul>
+            </nav>  
+          </div>
+        </header>
+
+        <!-- contents -->
         <div class="copy-container">
+          <div class="contents" style="padding-top: 200px">
           <h1>Ready to drive?</h1>
           <h2>Don't forget to wear your seatbelts!</h2>
+          </div>
         </div>
+
       </div>
 
-      <div class="footer">
-        <div class="footer-logo">Drowsiness Alert System</div>
-        <div class="footer-list">
-          <ul>
-            <li>Home</li>
-            <li>Alert System </li>
-            <li>Driving tips </li>
-          </ul>
-        </div>
-      </div>
-  </body>
+<style>    
+/* for changing background images -starts here */
+  .container{
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height: 100vh;
+      animation: animate 30s ease-in-out infinite;
+      background-size: cover;
+      text-align: center;
+    }
+
+  @keyframes animate{
+      0%{
+        background-image: url('static/img/bg-img1.jpg')
+      }
+      25%{
+          background-image: url('static/img/bg-img2.jpg')
+        }
+      50%{
+          background-image: url('static/img/bg-img3.jpg')
+      }
+      75%{
+          background-image: url('static/img/bg-img4.jpg')
+      }
+      100%{
+          background-image: url('static/img/bg-img5.jpg')
+      }
+    }
+/* for changing background images - ends here */
+
+/* for navigation bar - starts her */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+::selection {
+  background: #000;
+  color: #aaf;
+}
+.alternate ::selection {
+  background: #c00;
+  color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ul, li, .logo {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.inner {
+  width: 1400px;
+  position: relative;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: #000;
+  transition: 0.7s all;
+  z-index: 100;
+}
+
+li {
+  list-style: none;
+  font-size: 20px;
+}
+
+nav {
+  overflow: hidden;
+}
+
+nav ul {
+  float: right;
+}
+
+nav li {
+  display: inline;
+  float: left;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  transition: 0.3s all;
+}
+
+nav a:hover {
+  background: red;
+}
+
+.logo {
+  float: left;
+  color: white;
+  font-size: 40px;
+  line-height: 50px;
+  transition: 0.7s all;
+  padding-top: 5px;
+}
+
+/* for navigation bar - ends her */
+
+</style>
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+<script>
+</script>
+</body>
 </html>
-
-
 

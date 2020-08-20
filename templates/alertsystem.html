@@ -3,36 +3,116 @@
   <head>
       <meta charset="utf-8">
       <title>Drowsiness Alert System</title>
-      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/alertstyle.css')}}">
   </head>
 
   <body>
-      <div class="header">
-        <div class="header-logo">Drowsiness Alert System</div>
-        <div class="header-list">
-          <ul>
-            <li><a href = "{{ url_for('home') }}">Home</a></li>
-            <li>Alert System</li>
-            <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
-          </ul>
-        </div>
-      </div>
+        <!-- Navigation bar -->
+        <header id="topnav">
+          <div class="inner">
+            <div class="logo">Drowsiness Alert System</div>
+            <nav role='navigation'>
+              <ul>
+                <li><a href = "{{ url_for('home') }}">Home</a></li>
+                <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
+                <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
+              </ul>
+            </nav>  
+          </div>
+        </header>
 
-      <div class="main">
+      <div class="main" style="padding-top: 50px">
         <h2>This is the the Drowsiness Alert System!</h2>
         <h3>Please wait till the camera loads</h3>
         <img src="{{ url_for('video_feed') }}" alt="Please wait till the camera loads"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
       </div>
 
-      <div class="footer">
-        <div class="footer-logo">Drowsiness ALert System</div>
-        <div class="footer-list">
-          <ul>
-            <li>Home</li>
-            <li>Alert System </li>
-          </ul>
-        </div>
-      </div>
+<style>
+  /* for navigation bar - starts her */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+::selection {
+  background: #000;
+  color: #aaf;
+}
+.alternate ::selection {
+  background: #c00;
+  color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ul, li, .logo {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.inner {
+  width: 1400px;
+  position: relative;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: #000;
+  transition: 0.7s all;
+  z-index: 100;
+}
+
+li {
+  list-style: none;
+  font-size: 20px;
+}
+
+nav {
+  overflow: hidden;
+}
+
+nav ul {
+  float: right;
+}
+
+nav li {
+  display: inline;
+  float: left;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  transition: 0.3s all;
+}
+
+nav a:hover {
+  background: red;
+}
+
+.logo {
+  float: left;
+  color: white;
+  font-size: 40px;
+  line-height: 50px;
+  transition: 0.7s all;
+  padding-top: 5px;
+}
+
+/* for navigation bar - ends her */
+</style>
   </body>
 </html>
 

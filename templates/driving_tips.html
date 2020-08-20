@@ -3,23 +3,28 @@
   <head>
       <meta charset="utf-8">
       <title>Drowsiness Alert System</title>
-      <link rel="stylesheet" href="{{url_for('static', filename='css/stylesheet.css')}}">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/drivingstyle.css')}}">
   </head>
 
   <body>
-      <div class="header">
-        <div class="header-logo">Drowsiness Alert System</div>
-        <div class="header-list">
-          <ul>
-            <li><a href = "{{ url_for('home') }}">Home</a></li>
-            <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li> <!-- lick here to go to drowsiness alert system -->
-            <li>Driving Tips</li>
-          </ul>
+      <!-- Navigation bar -->
+      <header id="topnav">
+        <div class="inner">
+          <div class="logo">Drowsiness Alert System</div>
+          <nav role='navigation'>
+            <ul>
+              <li><a href = "{{ url_for('home') }}">Home</a></li>
+              <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
+              <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
+            </ul>
+          </nav>  
         </div>
-      </div>
+      </header>
 
-<body>
 
+<br>
+<br>
+<br>
 <center><b><p style="font-family:'Courier New'"><font color = "red" size = "5" > ABOUT 21% OF TOTAL CARACCIDENTS ARE CAUSED DUE TO DROWSINESS OF DRIVERS! LETS NOT INCREASE THIS STATUS<br>
 
 <h1>Try our drowsiness alert system to monitor your drowsiness to ensure safety!</font></b></center>
@@ -78,6 +83,92 @@ Be extra careful while driving during deer season.</li>
 </ol>
 <br>
 
+<style>
+  /* for navigation bar - starts her */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+::selection {
+  background: #000;
+  color: #aaf;
+}
+.alternate ::selection {
+  background: #c00;
+  color: #000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+ul, li, .logo {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.inner {
+  width: 1400px;
+  position: relative;
+  margin: 0 auto;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background: #000;
+  transition: 0.7s all;
+  z-index: 100;
+}
+
+li {
+  list-style: none;
+  font-size: 20px;
+}
+
+nav {
+  overflow: hidden;
+}
+
+nav ul {
+  float: right;
+}
+
+nav li {
+  display: inline;
+  float: left;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  transition: 0.3s all;
+}
+
+nav a:hover {
+  background: red;
+}
+
+.logo {
+  float: left;
+  color: white;
+  font-size: 40px;
+  line-height: 50px;
+  transition: 0.7s all;
+  padding-top: 5px;
+}
+
+/* for navigation bar - ends her */
+</style>
 
 
 </body>
