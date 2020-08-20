@@ -21,10 +21,10 @@
           </div>
         </header>
 
-      <div class="main" style="padding-top: 50px">
-        <h2>This is the the Drowsiness Alert System!</h2>
-        <h3>Please wait till the camera loads</h3>
-        <img src="{{ url_for('video_feed') }}" alt="Please wait till the camera loads"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
+        <!-- Contents -->
+      <div class="main" style="padding-top: 50px; text-align: center">
+        <h1 style="color: white"> Okay now, Mr.DAS is watching you! You can't fall asleep!</h1>
+        <img src="{{ url_for('video_feed') }}"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
       </div>
 
 <style>
@@ -112,6 +112,26 @@ nav a:hover {
 }
 
 /* for navigation bar - ends her */
+
+/* for background - starts here */
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* for background - ends here */
 </style>
   </body>
 </html>
