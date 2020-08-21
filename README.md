@@ -17,13 +17,18 @@ Reference: [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupo
 ● We utilised a pre trained frontal face detector from Dlib’s library which is based on  a modification to the Histogram of Oriented Gradients in combination with Linear  SVM for classification.  
 
 ● The pre-trained facial landmark detector inside the dlib library is used to estimate  the location of 68 (x, y)-coordinates that map to facial structures on the face. The 68  landmark output is shown in the figure below.
+
 ![Alt](images/FacialLandmarks.png)
 
 A shape detector is required as well, which is provided in the repo. Referring to the paper [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupova and Jan Cech,(2016)](http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf), **Eye Aspect Ratio(EAR)** is given by the following formula :
 
+
+
 ![Alt](images/EyeAspectRatioFormula.png)
 
 where, p1,...,p6 are as shown below :
+
+
 ![Alt](images/EyeAspectRatio.jpg)
 
 The coordinates for each landmark point can be found using the part number as listed in the Facial Landmarks picture above, which is then used to compute the Eye Aspect Ratio.
