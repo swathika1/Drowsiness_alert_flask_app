@@ -18,6 +18,7 @@ def home():
 def alert_system():
     return render_template("alertsystem.html")
 
+
 @app.route('/driving_tips')
 def driving_tips():
     return render_template("driving_tips.html")
