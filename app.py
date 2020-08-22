@@ -5,8 +5,8 @@ from sound_tools import play_alarm_sound
 
 app = Flask(__name__)
 
-EAR_THRESHOLD = 0.2
-CONSECUTIVE_FRAMES_THRESHOLD = 30  # temporarily 5, wil be changed to 30
+EAR_THRESHOLD = 0.25
+CONSECUTIVE_FRAMES_THRESHOLD = 20  # temporarily 5, wil be changed to 30
 
 
 @app.route('/')
