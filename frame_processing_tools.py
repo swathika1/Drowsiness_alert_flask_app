@@ -45,7 +45,7 @@ def eye_predictor(face_shape):
 
     left = str([face_shape.part(i) for i in get_point_numbers_of_feature('left_eye')])
 
-    # right eye coordinates from42 to 47
+    # right eye coordinates from 42 to 47
     right = str([face_shape.part(i) for i in get_point_numbers_of_feature('right_eye')])
 
     left = np.array(
