@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 EAR_THRESHOLD = 0.25
 CONSECUTIVE_FRAMES_THRESHOLD = 20
-
-
+BREAK_LIMIT = 4
+BREAK_COUNT = 0
 @app.route('/')
 def home():
     return render_template("home.html")  # app route "/" delivers whatever is in its function
@@ -57,8 +57,11 @@ def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
         if ear <= EAR_THRESHOLD:
             frame_count += 1
             if frame_count >= CONSECUTIVE_FRAMES_THRESHOLD:
+                BREAK_COUNT += 1
                 play_alarm_sound()
                 frame_count = 0
+                if BREAK_COUNT >= BREAK_LIMIT:
+                    
         else:
             frame_count = 0
 
