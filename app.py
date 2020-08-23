@@ -1,14 +1,15 @@
 from flask import Flask, render_template, Response
 from camera import VideoCamera
 import cv2
-from sound_tools import play_alarm_sound
-from break_voice import break_suggest
+from sound_tools import play_alarm_sound, break_suggest
+
 
 app = Flask(__name__)
 
 EAR_THRESHOLD = 0.25
 CONSECUTIVE_FRAMES_THRESHOLD = 20
-BREAK_LIMIT = 2
+BREAK_LIMIT = 4
+
 
 @app.route('/')
 def home():
@@ -38,6 +39,7 @@ def video_feed():
 def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
     # counting number of frames to play alert sound
     frame_count = 0
+    break_count = 0
 
     while True:
         frame, ear = vid_camera.get_frame()
@@ -57,13 +59,14 @@ def gen_jpeg_frame(vid_camera):  # generates jpeg frames from input stream
 
         if ear <= EAR_THRESHOLD:
             frame_count += 1
-            BREAK_COUNT = 0
+
             if frame_count >= CONSECUTIVE_FRAMES_THRESHOLD:
-                BREAK_COUNT += 1
+                break_count += 1
                 play_alarm_sound()
                 frame_count = 0
-                if BREAK_COUNT >= BREAK_LIMIT:
+                if break_count >= BREAK_LIMIT:
                     break_suggest()
+                    break_count = 0
 
         else:
             frame_count = 0
