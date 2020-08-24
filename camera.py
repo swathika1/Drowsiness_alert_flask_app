@@ -3,18 +3,17 @@ from frame_processing_tools import process_frame
 
 
 class VideoCamera:
-    def __init__(self):  # constructor
+
+    def __init__(self, fd, flp):  # constructor
         self.vid = cv2.VideoCapture(0)
-        self.vid.set(3, 640)  # to decrease resolution
-        self.vid.set(4, 480)
+        self.fd = fd
+        self.flp = flp
 
     def __del__(self):  # destructor, no need for destroy windows as we are using webpage
         self.vid.release()
 
     def get_frame(self):
         success, frame = self.vid.read()
-        frame = process_frame(frame)
+        frame = process_frame(frame, self.fd, self.flp)
 
         return frame
-
-

@@ -2,6 +2,7 @@ from flask import Flask, render_template, Response
 from camera import VideoCamera
 import cv2
 from sound_tools import play_alarm_sound, break_suggest
+import dlib
 
 
 app = Flask(__name__)
@@ -28,7 +29,13 @@ def driving_tips():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(gen_jpeg_frame(VideoCamera()), mimetype='multipart/x-mixed-replace; boundary=frame')
+    facial_shape_predictor = "shape_predictor_68_face_landmarks.dat"
+    face_detector = dlib.get_frontal_face_detector()
+    facial_landmark_predictor = dlib.shape_predictor(facial_shape_predictor)
+
+    return Response(gen_jpeg_frame(VideoCamera(face_detector, facial_landmark_predictor)), mimetype='multipart/x'
+                                                                                                    '-mixed-replace; '
+                                                                                                    'boundary=frame')
 
 
 """mimetype is response media type, for the purpose of having a stream where each part replaces the previous
