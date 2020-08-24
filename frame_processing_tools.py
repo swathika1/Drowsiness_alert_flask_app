@@ -1,28 +1,22 @@
 import cv2
-import dlib
 import imutils
 from imutils import face_utils
 import numpy as np
 from scipy.spatial import distance as dist
 
-FRAMEWIDTH = 400
 
-FACIAL_SHAPE_PREDICTOR = "shape_predictor_68_face_landmarks.dat"
+def process_frame(frame, face_detector, facial_landmark_predictor):
+    framewidth = 400
 
-FACE_DETECTOR = dlib.get_frontal_face_detector()  # returns face rectangle(s)
-FACIAL_LANDMARKS_PREDICTOR = dlib.shape_predictor(FACIAL_SHAPE_PREDICTOR)
-
-
-def process_frame(frame):
-    frame = imutils.resize(frame, width=FRAMEWIDTH)
+    frame = imutils.resize(frame, width=framewidth)
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    face_rectangles = FACE_DETECTOR(gray_frame)  # it is easier to get face rectangle from greyscale image
+    face_rectangles = face_detector(gray_frame)  # it is easier to get face rectangle from greyscale image
 
     ear = -1.0
 
     for rect in face_rectangles:
-        face_shape = FACIAL_LANDMARKS_PREDICTOR(image=gray_frame, box=rect)
+        face_shape = facial_landmark_predictor(image=gray_frame, box=rect)
         left_eye, right_eye = eye_predictor(face_shape)
         draw_eyes(frame, left_eye, right_eye)
         ear = (eye_aspect_ratio(left_eye) + eye_aspect_ratio(right_eye)) / 2.0
