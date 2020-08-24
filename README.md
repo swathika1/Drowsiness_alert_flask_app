@@ -22,7 +22,8 @@ Reference: [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupo
 
 A shape detector is required as well, which is provided in the repo. Referring to the paper [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupova and Jan Cech,(2016)](http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf), **Eye Aspect Ratio(EAR)** is given by the following formula :
 
-
+The EAR ratio is calculated for both the eyes in each frame. If it falls below a certain threshold value, the user’s
+eyes are detected as ”drowsy”. If the user’s eyes are closed for a certain number of frames, a loud alarm is played.
 
 ![Alt](images/EyeAspectRatioFormula.png)
 
