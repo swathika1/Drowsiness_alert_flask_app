@@ -2,8 +2,9 @@
 <html>
   <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Drowsiness Alert System</title>
-      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/homestyle.css') }}">
+      <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/homestyle.css')}}">
   </head>
 
   <body>
@@ -25,11 +26,22 @@
 
         <!-- contents -->
         <div class="copy-container">
-          <div class="contents" style="padding-top: 200px">
-          <h1>Ready to drive?</h1>
-          <h2>Don't forget to wear your seatbelts!</h2>
+         
+          <div class="wrapper">
+            <div id="date"></div>
+            <div id="time"></div>
+         
+        </div>
+          <div class="contents" style="padding-top: 175px">
+            
+              <h1 class='deepshadow'>Ready to drive?</h1>
+              <h2 class="retroshadow">Don't forget to wear your seatbelts!</h2>
+        
+          
+          
           </div>
         </div>
+        <button class="button"><span><a href = "{{ url_for('alert_system') }}" >Alert System </a></span></button>
 
       </div>
 
@@ -66,16 +78,16 @@
 /* for changing background images - ends here */
 
 /* Contents */
-.contents h1 {
+/* .contents h1 {
   color:#fff;
   font-size: 50px;
-}
+} */
 
 .contents h2 {
   color:#fff;
   font-size: 30px;
 }
-/* for navigation bar - starts her */
+/* for navigation bar - starts here */
 /* apply a natural box layout model to all elements */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
@@ -160,9 +172,176 @@ nav a:hover {
 
 /* for navigation bar - ends her */
 
+/* for button */
+/* .box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+} */
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  height: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/* class deep shadow */
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 50px;
+  padding: 30px 50px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+h2 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 30px;
+  padding: 10px 10px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+h1.deepshadow {
+  color: #e0dfdc;
+  background-color: rgb(51,51,51,0.5);
+  letter-spacing: 0.1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+h2.retroshadow {
+  color: #2c2c2c;
+  background-color: rgb(213,213,213,0.7);
+  letter-spacing: 0.05em;
+  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+/* time */
+.wrapper {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  right: 25%;
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(17, 14, 14, 0.5);
+  /* padding: 35px; */
+  border: 2px solid white;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+#date {
+  color: white;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#time {
+  color: white;
+  text-align: center;
+  font-size: 3em;
+}
 </style>
 <script src="{{url_for('static', filename='js/script.js')}}"></script>
 <script>
+/* for time */
+(function() {
+  'use strict';
+
+  function getDate() {
+    var date = new Date();
+    var weekday = date.getDay();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+
+    if (hour < 10) hour = "0" + hour;
+    if (minutes < 10) minutes = "0" + minutes;
+    if (seconds < 10) seconds = "0" + seconds;
+
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    var weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"]
+
+    var ampm = " PM ";
+
+    if (hour < 12) ampm = " AM ";
+
+    if (hour > 12) hour -= 12;
+
+    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;
+
+    var showTime = hour + ":" + minutes + ":" + seconds + ampm;
+    
+    var color = monthColors[month];
+
+    document.getElementById('date').innerHTML = showDate;
+
+    document.getElementById('time').innerHTML = showTime;
+    
+    document.bgColor = color;
+    
+
+    requestAnimationFrame(getDate);
+  }
+
+  getDate();
+
+}());
 </script>
 </body>
 </html>
