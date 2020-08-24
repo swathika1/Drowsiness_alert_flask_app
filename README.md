@@ -12,6 +12,11 @@ Reference: [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupo
 6. numpy
 7. Pre-trained Shape Predictor Dlib Model - shape_predictor_68_face_landmarks.dat (https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat)
 
+We detect facial features with OpenCV and Dlib
+Play sound in python3 using soundfile and sounddevice 
+HTML and CSS are used to Create a Flask application.
+
+
 ## Working :
 
 ● We utilised a pre trained frontal face detector from Dlib’s library which is based on  a modification to the Histogram of Oriented Gradients in combination with Linear  SVM for classification.  
@@ -22,7 +27,8 @@ Reference: [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupo
 
 A shape detector is required as well, which is provided in the repo. Referring to the paper [Real-Time Eye Blink Detection using Facial Landmarks, Tereza Soukupova and Jan Cech,(2016)](http://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf), **Eye Aspect Ratio(EAR)** is given by the following formula :
 
-
+The EAR ratio is calculated for both the eyes in each frame. If it falls below a certain threshold value, the user’s
+eyes are detected as ”drowsy”. If the user’s eyes are closed for a certain number of frames, a loud alarm is played.
 
 ![Alt](images/EyeAspectRatioFormula.png)
 
