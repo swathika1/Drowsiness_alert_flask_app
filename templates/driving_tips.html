@@ -1,186 +1,225 @@
 <!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Drowsiness Alert System</title>
-      <link rel="stylesheet" href="{{url_for('static', filename='css/drivingstyle.css')}}">
-  </head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drowsiness Alert System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/drivingstyle.css') }}">
+</head>
 
-  <body>
-      <!-- Navigation bar -->
-      <header id="topnav">
-        <div class="inner">
-          <div class="logo">Drowsiness Alert System</div>
-          <nav role='navigation'>
+<body>
+<!-- Navigation bar -->
+<header id="topnav">
+    <div class="inner">
+        <div class="logo">Drowsiness Alert System</div>
+        <nav role='navigation'>
             <ul>
-              <li><a href = "{{ url_for('home') }}">Home</a></li>
-              <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
-              <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('alert_system') }}">Alert System</a></li>
+                <li><a href="{{ url_for('driving_tips') }}">Driving Tips</a></li>
             </ul>
-          </nav>  
-        </div>
-      </header>
+        </nav>
+    </div>
+</header>
 
 
 <br>
 <br>
 <br>
-<center><b><p style="font-family:'Courier New'"><font color = "red" size = "5" > ABOUT 21% OF TOTAL CARACCIDENTS ARE CAUSED DUE TO DROWSINESS OF DRIVERS! LETS NOT INCREASE THIS STATUS<br>
+<p style="color: white; font-family: Courier New,sans-serif; text-align: center; font-size: 50px"> ABOUT <text style="color: red; font-size: 55px"> 21% </text> OF CAR ACCIDENTS ARE CAUSED BY DRIVERS
+        FALLING ASLEEP AT THE WHEEL!
+        <br>
+        Keep yourself and your family safe with our drowsiness alert system! </p>
 
-<h1>Try our drowsiness alert system to monitor your drowsiness to ensure safety!</font></b></center>
-
-<center><h2><font color="blue" size = "5"> <u> Here are some tips you are advised to follow while driving</u> </font></h2>
-</center>
-
-<br>
-<br>
-
-<center><font color="darkblue" size="4">
---> Drowsiness alerts are designed to warn you that you have become drowsy after you have already begun driving; you shouldn’t get behind the wheel in the first place if you know you’re drowsy.
-  <br>
---> Choose a safe, secure location to take a break. Some cars with drowsiness alert may automatically inform you of nearby rest areas using the built-in GPS.Use our drowsiness alert system in any case for safety.
-<br>
---> On long trips, plan ahead periodic driving breaks – every two hours or so – to reduce the risk of becoming drowsy behind-the-wheel. If driving with other licensed drivers, consider taking turns.</font></center>
-<br>
-
-<h2 style="background-color:powderblue;">First things first!</h2>
+<div class="boxed">
+    <h2> <u> Here are some tips you are advised to follow while driving</u> </h2>
 
 <br>
+<br>
+    --> Drowsiness alerts are designed to warn you that you have become drowsy after you have already begun driving; you
+    shouldn’t get behind the wheel in the first place if you know you’re drowsy.
+    <br>
+    --> Choose a safe, secure location to take a break. Some cars with drowsiness alert may automatically inform you of
+    nearby rest areas using the built-in GPS.Use our drowsiness alert system in any case for safety.
+    <br>
+    --> On long trips, plan ahead periodic driving breaks – every two hours or so – to reduce the risk of becoming
+    drowsy behind-the-wheel. If driving with other licensed drivers, consider taking turns.
+<br>
 
-<ol><font color = "purple" size = "4">
+<h2>First things first!</h2>
+
+<br>
+
+<ol>
     <li>* FIRST RULE WEAR YOUR SEATBELTS</li>
     <li>* CONCENTRATE ALL THE TIME ON YOUR DRIVING TO AVOID ACCIDENTS</li>
     <li>* INTERPRET THE TRAFFIC SITUATION CORRECTLY BEFORE YOU ACT</li>
     <li>* EXERCISE PATIENCE AND 'HANG BACK' WHEN NECESSARY</li>
-</font></ol>
+</ol>
 
 
-<center>
+    <b> FOCUS ON THE ROAD</b>
 
-<b> <font style="background-color:Pink;"size="6">FOCUS ON THE ROAD</b></font>
 
-</center>
-
-<p><font color="orange" size="4"> Keep 100% of your attention on driving at all times 
-<br>Avoid multi-tasking<br>Don’t use your phone or any other electronic device while driving.<br></p>
+<p> Keep 100% of your attention on driving at all times
+    <br>Avoid multi-tasking<br>Don’t use your phone or any other electronic device while driving.<br></p>
 <Br>
 
-<center>
+<b>DEFENSE DRIVING</b>
 
-<b><font color = "black" font style="background-color:Pink;"size="6">DEFENSE DRIVING</b></font>
 
-</center>
+<p>Be aware of what other drivers around you are doing, and expect the unexpected.<br>
+    Assume other motorists will do something crazy, and always be prepared to avoid it.<br>
+    Keep a 2-second cushion between you and the car in front of you.<br>Make that 4 seconds if the weather is bad.<br>Slow
+    down. Speeding gives
+    you less time to react and increases the severity of an accident.</p>
 
-<p><font color="maroon" size="4">Be aware of what other drivers around you are doing, and expect the unexpected.<br>
-Assume other motorists will do something crazy, and always be prepared to avoid it.<br>
-Keep a 2-second cushion between you and the car in front of you.<br>Make that 4 seconds if the weather is bad.<br>Slow down. Speeding gives
-you less time to react and increases the severity of an accident.</p>
+    <br>
 
-<center>
+    <b>PRACTICE SAFETY</b>
+
+<p>Don’t attempt to retrieve items that fall to the floor.<br>
+    Have items needed within easy reach – such as toll fees, toll cards and garage passes.<br>
+    Always wear your seat belt and drive sober and drug-free.<br></p>
 <br>
-
-<b><font color = "black" font style="background-color:Pink;"size="6">PRACTICE SAFETY</b></font>
-</center>
-
-<p><font color="saffron" size="4">Don’t attempt to retrieve items that fall to the floor.<br>
-Have items needed within easy reach – such as toll fees, toll cards and garage passes.<br>
-Always wear your seat belt and drive sober and drug-free.<br></p>
-<br>
-<ol><font color = "mocha">
-    <li>* Don't allow children to fight or climb around in your car – they should be buckled in their seats at all times.</li>
+ <ol>
+    <li>* Don't allow children to fight or climb around in your car – they should be buckled in their seats at all
+        times.
+    </li>
     <li>* Too much noise can easily distract you from focus on the road.</li>
-    <li>* Avoid driving when you're tired. Be aware that some medications cause drowsiness and make operating a vehicle very dangerous.</li>
-    <li>* Always use caution when changing lanes. Cutting in front of someone, changing lanes too fast or not using your signals may cause an accident or upset other drivers.<br>
-Be extra careful while driving during deer season.</li>
-</ol></font>
+    <li>* Avoid driving when you're tired. Be aware that some medications cause drowsiness and make operating a vehicle
+        very dangerous.
+    </li>
+    <li>* Always use caution when changing lanes. Cutting in front of someone, changing lanes too fast or not using your
+        signals may cause an accident or upset other drivers.<br>
+        Be extra careful while driving during deer season.
+    </li>
+  </ol>
+
 <br>
+</div>
 
 <style>
-  /* for navigation bar - starts her */
-/* apply a natural box layout model to all elements */
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
+    /* for navigation bar - starts her */
+    /* apply a natural box layout model to all elements */
+    *, *:before, *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
 
-::selection {
-  background: #000;
-  color: #aaf;
-}
-.alternate ::selection {
-  background: #c00;
-  color: #000;
-}
+    ::selection {
+        background: #000;
+        color: #aaf;
+    }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.5;
-}
+    .alternate ::selection {
+        background: #c00;
+        color: #000;
+    }
 
-ul, li, .logo {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 
-.inner {
-  width: 1400px;
-  position: relative;
-  margin: 0 auto;
-}
+    ul, li, .logo {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+    }
 
-header {
-  position: fixed;
-  width: 100%;
-  background: #000;
-  transition: 0.7s all;
-  z-index: 100;
-}
+    .inner {
+        width: 1400px;
+        position: relative;
+        margin: 0 auto;
+    }
 
-li {
-  list-style: none;
-  font-size: 20px;
-}
+    header {
+        position: fixed;
+        width: 100%;
+        background: #000;
+        transition: 0.7s all;
+        z-index: 100;
+    }
 
-nav {
-  overflow: hidden;
-}
+    li {
+        list-style: none;
+        font-size: 20px;
+    }
 
-nav ul {
-  float: right;
-}
+    nav {
+        overflow: hidden;
+    }
 
-nav li {
-  display: inline;
-  float: left;
-}
+    nav ul {
+        float: right;
+    }
 
-nav a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;
-  transition: 0.3s all;
-}
+    nav li {
+        display: inline;
+        float: left;
+    }
 
-nav a:hover {
-  background: red;
-}
+    nav a {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        padding: 20px;
+        transition: 0.3s all;
+    }
 
-.logo {
-  float: left;
-  color: white;
-  font-size: 40px;
-  line-height: 50px;
-  transition: 0.7s all;
-  padding-top: 5px;
-}
+    nav a:hover {
+        background: red;
+    }
 
-/* for navigation bar - ends her */
+    .logo {
+        float: left;
+        color: white;
+        font-size: 40px;
+        line-height: 50px;
+        transition: 0.7s all;
+        padding-top: 5px;
+    }
+
+    /* for navigation bar - ends her */
+
+
+    /* for background - starts here */
+    body {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    /* for background - ends here */
+
+    /* for box */
+    .boxed {
+        border: 20px solid darkblue ;
+        border-radius: 35px;
+        background-color: azure;
+        width: 1250px;
+        margin-left: 200px;
+        text-align: center;
+    }
+    /* end of box style*/
 </style>
 
 
