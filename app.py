@@ -10,6 +10,7 @@ app = Flask(__name__)
 EAR_THRESHOLD = 0.25
 CONSECUTIVE_FRAMES_THRESHOLD = 20
 BREAK_LIMIT = 4
+SHAPE_PREDICTOR_FILE = "shape_predictor_68_face_landmarks.dat"
 
 
 @app.route('/')
@@ -29,7 +30,7 @@ def driving_tips():
 
 @app.route('/video_feed')
 def video_feed():
-    facial_shape_predictor = "shape_predictor_68_face_landmarks.dat"
+    facial_shape_predictor = SHAPE_PREDICTOR_FILE
     face_detector = dlib.get_frontal_face_detector()
     facial_landmark_predictor = dlib.shape_predictor(facial_shape_predictor)
 
