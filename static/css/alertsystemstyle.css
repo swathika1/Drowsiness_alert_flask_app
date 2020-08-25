@@ -1,51 +1,34 @@
-
-/* for navigation bar - starts her */
-/* apply a natural box layout model to all elements */
+/* ////////////////////// NAVIGATION BAR /////////////////////////////////////// */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 ::selection {
-  background: #000;
-  color: #aaf;
+  background: #000; color: #aaf;
 }
+
 .alternate ::selection {
-  background: #c00;
-  color: #000;
+  background: #c00; color: #000;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.5;
+  margin: 0; padding: 0; font-size: 16px; line-height: 1.5;
 }
 
 ul, li, .logo {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; margin: 0; padding: 0;
 }
 
 .inner {
-  width: 1400px;
-  position: relative;
-  margin: 0 auto;
+  width: 1400px; position: relative; margin: 0 auto;
 }
 
 header {
-  position: fixed;
-  width: 100%;
-  background: #000;
-  transition: 0.7s all;
-  z-index: 100;
+  position: fixed; width: 100%; background: #000; transition: 0.7s all; z-index: 100;
 }
 
 li {
-  list-style: none;
-  font-size: 20px;
+  list-style: none; font-size: 20px;
 }
 
 nav {
@@ -57,16 +40,11 @@ nav ul {
 }
 
 nav li {
-  display: inline;
-  float: left;
+  display: inline; float: left;
 }
 
 nav a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;
-  transition: 0.3s all;
+  display: inline-block; color: #fff; text-decoration: none; padding: 20px; transition: 0.3s all;
 }
 
 nav a:hover {
@@ -74,12 +52,27 @@ nav a:hover {
 }
 
 .logo {
-  float: left;
-  color: white;
-  font-size: 40px;
-  line-height: 50px;
-  transition: 0.7s all;
-  padding-top: 5px;
+  float: left; color: white; font-size: 40px; line-height: 50px; transition: 0.7s all; padding-top: 5px;
 }
 
-/* for navigation bar - ends her */
+/* ////////////////////// BACKGROUND /////////////////////////////////////// */
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
+}
+
+/* ////////////////////// ALERT PAGE TEXT /////////////////////////////////////// */
+
+/* for "okay mr.das ... " */
+.main {
+  padding-top: 50px; text-align: center
+}
+
+.main h1 {
+  color: white;
+}

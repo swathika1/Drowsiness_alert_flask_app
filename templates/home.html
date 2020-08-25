@@ -9,131 +9,81 @@
 
   <body>
 
-      <div class="container">
-        <!-- Navigation bar -->
-        <header id="topnav">
-          <div class="inner">
-            <div class="logo">Drowsiness Alert System</div>
-            <nav role='navigation'>
-              <ul>
-                <li><a href = "{{ url_for('home') }}">Home</a></li>
-                <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
-                <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
-              </ul>
-            </nav>  
-          </div>
-        </header>
-
-        <!-- contents -->
-        <div class="copy-container">
-         
-          <div class="wrapper">
-            <div id="date"></div>
-            <div id="time"></div>
-         
+    <div class="container">
+      <!-- Navigation bar -->
+      <header id="topnav">
+        <div class="inner">
+          <div class="logo">Drowsiness Alert System</div>
+          <nav role='navigation'>
+            <ul>
+              <li><a href = "{{ url_for('home') }}">Home</a></li>
+              <li><a href = "{{ url_for('alert_system') }}">Alert System</a></li>
+              <li><a href = "{{ url_for('driving_tips') }}">Driving Tips</a></li>
+            </ul>
+          </nav>  
         </div>
-          <div class="contents" style="padding-top: 175px">
-            
-              <h1 class='deepshadow'>Ready to drive?</h1>
-              <h2 class="retroshadow">Don't forget to wear your seatbelts!</h2>
-        
-          
-          
-          </div>
-        </div>
-        <button class="button"><span><a href = "{{ url_for('alert_system') }}" >Alert System </a></span></button>
+      </header>
 
+      <!-- contents -->
+      <div class="copy-container">
+        <div class="wrapper">
+          <div id="date"></div>
+          <div id="time"></div>
+        </div>
+        <div class="contents" style="padding-top: 175px">
+            <h1 class='deepshadow'>Ready to drive?</h1>
+            <h2 class="retroshadow">Don't forget to wear your seatbelts!</h2>
+        </div>
       </div>
 
-<style>    
-/* for changing background images -starts here */
-  .container{
-      position:absolute;
-      left:0;
-      top:0;
-      width:100%;
-      height: 100vh;
-      animation: animate 30s ease-in-out infinite;
-      background-size: cover;
-      text-align: center;
-    }
+      <button class="button"><span><a href = "{{ url_for('alert_system') }}" >Alert System </a></span></button>
+    </div>
 
-  @keyframes animate{
-      0%{
-        background-image: url('static/img/bg-img1.jpg')
-      }
-      25%{
-          background-image: url('static/img/bg-img2.jpg')
-        }
-      50%{
-          background-image: url('static/img/bg-img3.jpg')
-      }
-      75%{
-          background-image: url('static/img/bg-img4.jpg')
-      }
-      100%{
-          background-image: url('static/img/bg-img5.jpg')
-      }
-    }
-/* for changing background images - ends here */
-
-/* Contents */
-/* .contents h1 {
-  color:#fff;
-  font-size: 50px;
-} */
-
-.contents h2 {
-  color:#fff;
-  font-size: 30px;
+<style> 
+/* ////////////////////// CHANGING BACKGROUND IMAGES /////////////////////////////////////// */
+.container{
+  position:absolute; left:0; top:0; width:100%; height: 100vh; animation: animate 30s ease-in-out infinite; background-size: cover;text-align: center;
 }
-/* for navigation bar - starts here */
-/* apply a natural box layout model to all elements */
+
+@keyframes animate{
+  0%{ background-image: url('static/img/bg-img1.jpg')}
+  25%{ background-image: url('static/img/bg-img2.jpg')}
+  50%{ background-image: url('static/img/bg-img3.jpg')}
+  75%{ background-image: url('static/img/bg-img4.jpg')}
+  100%{ background-image: url('static/img/bg-img5.jpg')}
+}
+
+/* ////////////////////// NAVIGATION BAR /////////////////////////////////////// */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
 
 ::selection {
-  background: #000;
-  color: #aaf;
+  background: #000; color: #aaf;
 }
+
 .alternate ::selection {
-  background: #c00;
-  color: #000;
+  background: #c00; color: #000;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  line-height: 1.5;
+  margin: 0; padding: 0; font-size: 16px; line-height: 1.5;
 }
 
 ul, li, .logo {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-weight: 400; margin: 0; padding: 0;
 }
 
 .inner {
-  width: 1400px;
-  position: relative;
-  margin: 0 auto;
+  width: 1400px; position: relative; margin: 0 auto;
 }
 
 header {
-  position: fixed;
-  width: 100%;
-  background: #000;
-  transition: 0.7s all;
-  z-index: 100;
+  position: fixed; width: 100%; background: #000; transition: 0.7s all; z-index: 100;
 }
 
 li {
-  list-style: none;
-  font-size: 20px;
+  list-style: none; font-size: 20px;
 }
 
 nav {
@@ -145,16 +95,11 @@ nav ul {
 }
 
 nav li {
-  display: inline;
-  float: left;
+  display: inline; float: left;
 }
 
 nav a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;
-  transition: 0.3s all;
+  display: inline-block; color: #fff; text-decoration: none; padding: 20px; transition: 0.3s all;
 }
 
 nav a:hover {
@@ -162,63 +107,36 @@ nav a:hover {
 }
 
 .logo {
-  float: left;
-  color: white;
-  font-size: 40px;
-  line-height: 50px;
-  transition: 0.7s all;
-  padding-top: 5px;
+  float: left; color: white; font-size: 40px; line-height: 50px; transition: 0.7s all; padding-top: 5px;
 }
 
-/* for navigation bar - ends her */
+/* ////////////////////// DATE AND TIME /////////////////////////////////////// */
+.wrapper {
+  position: absolute; top: 10%; left: 25%; right: 25%; width: 40%; margin: 0 auto; background: rgba(17, 14, 14, 0.5); border: 2px solid white;border-radius: 20px/50px;background-clip: padding-box; text-align: center;
+}
 
-/* for button */
-/* .box {
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(255,255,255,0.2);
-  padding: 35px;
-  border: 2px solid #fff;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-} */
+#date {
+  color: white; text-align: center; font-size: 1.5em; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 
+#time {
+  color: white; text-align: center; font-size: 3em;
+}
+
+/* ////////////////////// BUTTON /////////////////////////////////////// */
 .button {
-  border-radius: 4px;
-  background-color: #f4511e;
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 28px;
-  padding: 20px;
-  width: 300px;
-  height: 100px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
+  border-radius: 4px; background-color: #f4511e; border: none; color: #FFFFFF; text-align: center; font-size: 28px; padding: 20px; width: 300px;height: 100px; transition: all 0.5s; cursor: pointer; margin: 5px;
 }
 
 .button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
+  cursor: pointer;display: inline-block; position: relative; transition: 0.5s;
 }
 .button a {
-  display: inline-block;
-  color: #fff;
-  text-decoration: none;
-
+  display: inline-block; color: #fff; text-decoration: none;
 }
 
 .button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+  content: '\00bb'; position: absolute; opacity: 0; top: 0; right: -20px; transition: 0.5s;
 }
 
 .button:hover span {
@@ -226,72 +144,33 @@ nav a:hover {
 }
 
 .button:hover span:after {
-  opacity: 1;
-  right: 0;
+  opacity: 1; right: 0;
 }
 
+/* ////////////////////// HOMEPAGE TEXT /////////////////////////////////////// */
 
-/* class deep shadow */
+/* for "ready to drive?" */
 h1 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  font-size: 50px;
-  padding: 30px 50px;
-  text-align: center;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif; font-size: 50px; padding: 30px 50px; text-align: center; text-transform: uppercase; text-rendering: optimizeLegibility;
 }
-h2 {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-  font-size: 30px;
-  padding: 10px 10px;
-  text-align: center;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-}
+
+
 h1.deepshadow {
-  color: #e0dfdc;
-  background-color: rgb(51,51,51,0.5);
-  letter-spacing: 0.1em;
-  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+  color: #e0dfdc; background-color: rgb(51,51,51,0.5); letter-spacing: 0.1em; text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* for "don't forget to wear your seatbelts" */
+h2 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif; font-size: 30px; padding: 10px 10px; text-align: center; text-transform: uppercase; text-rendering: optimizeLegibility;
 }
 
 h2.retroshadow {
-  color: #2c2c2c;
-  background-color: rgb(213,213,213,0.7);
-  letter-spacing: 0.05em;
-  text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
+  color: #2c2c2c; background-color: rgb(213,213,213,0.7); letter-spacing: 0.05em; text-shadow: 4px 4px 0px #d5d5d5, 7px 7px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* time */
-.wrapper {
-  position: absolute;
-  top: 10%;
-  left: 25%;
-  right: 25%;
-  width: 40%;
-  margin: 0 auto;
-  background: rgba(17, 14, 14, 0.5);
-  /* padding: 35px; */
-  border: 2px solid white;
-  border-radius: 20px/50px;
-  background-clip: padding-box;
-  text-align: center;
-}
-
-#date {
-  color: white;
-  text-align: center;
-  font-size: 1.5em;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-#time {
-  color: white;
-  text-align: center;
-  font-size: 3em;
-}
 </style>
 <script src="{{url_for('static', filename='js/script.js')}}"></script>
+<script type = "text/javascript" src="{{url_for('static', filename='js/datetime.js')}}"></script>
 <script>
 /* for time */
 (function() {
@@ -335,7 +214,6 @@ h2.retroshadow {
     
     document.bgColor = color;
     
-
     requestAnimationFrame(getDate);
   }
 

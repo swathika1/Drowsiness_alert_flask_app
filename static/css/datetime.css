@@ -1,0 +1,28 @@
+/* time */
+.wrapper {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    right: 25%;
+    width: 40%;
+    margin: 0 auto;
+    background: rgba(17, 14, 14, 0.5);
+    /* padding: 35px; */
+    border: 2px solid white;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+  }
+  
+#date {
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#time {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+}

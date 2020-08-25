@@ -1,0 +1,82 @@
+/* for navigation bar */
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+  
+::selection {
+    background: #000;
+    color: #aaf;
+}
+.alternate ::selection {
+    background: #c00;
+    color: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+ul, li, .logo {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.inner {
+    width: 1400px;
+    position: relative;
+    margin: 0 auto;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background: #000;
+    transition: 0.7s all;
+    z-index: 100;
+}
+
+li {
+    list-style: none;
+    font-size: 20px;
+}
+
+nav {
+    overflow: hidden;
+}
+
+nav ul {
+    float: right;
+}
+
+nav li {
+    display: inline;
+    float: left;
+}
+
+nav a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;
+    transition: 0.3s all;
+}
+
+nav a:hover {
+    background: red;
+}
+
+.logo {
+    float: left;
+    color: white;
+    font-size: 40px;
+    line-height: 50px;
+    transition: 0.7s all;
+    padding-top: 5px;
+}
