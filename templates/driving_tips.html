@@ -56,13 +56,16 @@
         </ul>
     </div>
     <br>
+    <br>
     <h2> For a safe and happy journey, please ensure you follow these guidelines: </h2>
 <br>
     <div class="smaller-box">
         <h2> Basic safety guidelines</h2>
             <h3>Don't forget your seatbelt!</h3>
-            <p>We cannot emphasize this enough - always wear your seatbelts at all times and ensure all the other passengers do the same.
-            </p>
+            <ul>
+                <li> We cannot emphasize this enough - always wear your seatbelts at all times and ensure all the other passengers do the same.
+            </li>
+            </ul>
             <h3>Focus!</h3>
                 <ul>
                     <li>
@@ -93,8 +96,10 @@
                     <li> Always use caution when changing lanes. Cutting in front of someone, changing lanes too fast or not using your
         signals may cause an accident or upset other drivers.</li>
                     </ul>
+        <br>
     </div>
-
+    <br>
+    <br>
     <div class="smaller-box">
         <h2> Defense driving </h2>
                 <ul>
@@ -103,8 +108,10 @@
                 <li> Keep a 2-second cushion between you and the car in front of you. Make that 4 seconds if the weather is bad.</li>
                 <li> Slow down. Speeding gives you less time to react and increases the severity of an accident.</li>
                 </ul>
+        <br>
     </div>
-
+    <br>
+    <br>
     <div class="smaller-box">
         <h2> Taking a break </h2>
                 <ul>
@@ -112,7 +119,10 @@
                 <li> On long trips, plan ahead periodic driving breaks – every two hours or so – to reduce the risk of becoming
     drowsy behind-the-wheel. If driving with other licensed drivers, consider taking turns. </li>
                 </ul>
+        <br>
     </div>
+    <br>
+    <br>
 </div>
 
 <style>
@@ -141,13 +151,13 @@
         line-height: 1.5;
     }
 
-    ul, li, .logo {
+    <!--ul, li, .logo {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-weight: 400;
         margin: 0;
         padding: 0;
-    }
+    }-->
 
     .inner {
         width: 1400px;
@@ -161,11 +171,6 @@
         background: #000;
         transition: 0.7s all;
         z-index: 100;
-    }
-
-    li {
-        list-style: none;
-        font-size: 20px;
     }
 
     nav {
@@ -231,17 +236,38 @@
         border: 20px solid darkblue ;
         border-radius: 35px;
         background-color: azure;
-        width: 1250px;
+        width: 1125px;
         margin-left: 200px;
         text-align: center;
     }
 
-    .why {
+    .smaller-box ul{
+        list-style-type: disc;
+        font-size: 20px;
+        text-align: left;
+        margin-left: 30px;
+    }
 
+    .why ul{
+        list-style-type: none;
+        font-size: 20px;
     }
 
     .smaller-box {
+        border: 10px solid orangered ;
+        border-radius: 50px;
+        background-color: white;
+        width: 1000px;
+        margin-left: 50px;
+        text-align: center;
+    }
+    .smaller-box p{
+        font-size: 20px;
+    }
 
+    .smaller-box h3{
+        text-align: left;
+        margin-left: 30px;
     }
     /* end of box style*/
 </style>
