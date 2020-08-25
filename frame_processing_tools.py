@@ -28,8 +28,8 @@ def process_frame(frame, face_detector, facial_landmark_predictor):
 def draw_eyes(frame, left_eye, right_eye):
     lefteye_hull = cv2.convexHull(left_eye)
     righteye_hull = cv2.convexHull(right_eye)
-    cv2.drawContours(frame, [lefteye_hull], -1, (0, 255, 0), 1)
-    cv2.drawContours(frame, [righteye_hull], -1, (0, 255, 0), 1)
+    cv2.drawContours(frame, [lefteye_hull], -1, (255, 0, 0), 1)
+    cv2.drawContours(frame, [righteye_hull], -1, (255, 0, 0), 1)
 
 
 def eye_predictor(face_shape):
