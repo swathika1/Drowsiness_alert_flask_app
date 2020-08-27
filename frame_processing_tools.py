@@ -6,7 +6,7 @@ from scipy.spatial import distance as dist
 
 
 def process_frame(frame, face_detector, facial_landmark_predictor):
-    framewidth = 400
+    framewidth = 600
 
     frame = imutils.resize(frame, width=framewidth)
     gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)

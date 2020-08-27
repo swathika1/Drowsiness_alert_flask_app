@@ -5,6 +5,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Drowsiness Alert System</title>
       <link rel="stylesheet" href="{{url_for('static', filename='css/alertstyle.css')}}">
+      <link href='https://fonts.googleapis.com/css?family=Audiowide|Iceland|Monoton|Pacifico|Press+Start+2P|Vampiro+One' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
   </head>
 
   <body>
@@ -23,11 +25,14 @@
     </header>
 
       <!-- Contents -->
-    <div class="main">
-      <h1> Okay now, Mr.Das is watching you! You can't fall asleep!</h1>
+      <div class="main" style="background-image: url('static/img/alertbg.jpg'); background-size: cover">
+    <div class="main" >
+      <p><span> Okay now, Mr.Das is watching you! You can't fall asleep!</span></p>
+      <br><br><br><br><br><br><br><br>
+      <br>
       <img src="{{ url_for('video_feed') }}"> <!-- url_for provides the url for a specific url point corresponding to a function- here video_feed -->
     </div>
-
+    </div>
 <style>
 /* ////////////////////// NAVIGATION BAR /////////////////////////////////////// */
 *, *:before, *:after {
@@ -87,7 +92,7 @@ nav a:hover {
 }
 
 /* ////////////////////// BACKGROUND /////////////////////////////////////// */
-body {
+/* body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);background-size: 400% 400%;animation: gradient 15s ease infinite;
 }
 
@@ -95,7 +100,7 @@ body {
 	0% {background-position: 0% 50%;}
 	50% {background-position: 100% 50%;}
 	100% {background-position: 0% 50%;}
-}
+} */
 
 /* ////////////////////// ALERT PAGE TEXT /////////////////////////////////////// */
 
@@ -107,6 +112,33 @@ body {
 .main h1 {
   color: white;
 }
+
+p {
+	text-transform: uppercase;
+	letter-spacing: .5em;
+	display: inline-block;
+	border: 6px double rgba(255,255,255,.25);
+	border-width: 4px 0;
+	padding: 1em 0em;
+	position: absolute;
+	top: 15%;
+	/* left: 50%; */
+	width: 65em;
+	margin: 0 0 0 -32em;
+  background-color: rgb(255,255,255,0.5);
+  color: yellow;
+}
+  
+p span {
+  font-family: "Press Start 2P";
+  	/* font-family: "Oswald", sans-serif; */
+    font-size: 30px;
+  	letter-spacing: 0;
+  	/* padding: .25em 0 .325em; */
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5);
+  }
 </style>
 </body>
 </html>
